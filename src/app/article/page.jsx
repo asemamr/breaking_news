@@ -12,7 +12,7 @@ function Page() {
   if (!params || !params.has("description")) {
     return <div className="font-bold text-center text-3xl mt-10 font-serif capitalize">this page is not found</div>
   }
-  const content = params.get("description");
+  const content = params.get("content");
   const maxSentencesPerParagraph = 3; // Change this as needed
   const sentences = content.split(/\.|\?|!/); // Split into an array of sentences
   const paragraphs = [];
