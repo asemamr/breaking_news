@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
-import Results from "../Results";
+// import Results from "../Results";
 
-// const Results = dynamic(() => import("../Results.jsx"), {
-//   loading: () => <h2>loading:)............</h2>,
-// });
+const Results = dynamic(() => import("../Results.jsx"), {
+  loading: () => <h2>loading:)............</h2>,
+});
 
 function page({ searchParams }) {
   return (
