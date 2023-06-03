@@ -10,8 +10,8 @@ import { Suspense } from "react";
 export default async function Home() {
   LINKS.splice(5, 2);
 
-  // const news = await fetchNews("top,sports,technology", null, false)
-  const news = data.data.news;
+  const news = await fetchNews("top,sports,technology", null, false)
+  // const news = data.data.news;
   return (
     <main className="p-10">
       <Posts posts={news.results} />

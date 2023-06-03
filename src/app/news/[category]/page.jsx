@@ -5,9 +5,9 @@ import data from "../../db.json"
 import AnimateProviders from "./AnimateProviders";
 
 async function page({params:{category}}) {
-  // const news = await fetchNews(category, null, false)
+  const news = await fetchNews(category, null, false)
   
-  const news = data.data.news
+  // const news = data.data.news
   return (
       <main className="p-10">
         <Posts posts={news.results} />
