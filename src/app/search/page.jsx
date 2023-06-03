@@ -6,6 +6,7 @@ const Results = dynamic(() => import("../Results.jsx"), {
 });
 
 function page({ searchParams }) {
+  console.log("the search params in search page is,", searchParams);
   return (
     <div>
       <Results searchParams={searchParams} />

@@ -44,24 +44,26 @@ const typeDefs = gql`
   }
   input Input {
     categories: String
-    isDynamic: Boolean
     keywords: String
+    isDynamic: Boolean
   }
 `
 const resolvers = {
   Query: {
     books: () => books,
-    news: async (parent, {input: {categories, isDynamic, keywords}}, context) => {
+    news: async (parent, {input: {categories, keywords, isDynamic}}, context) => {
       if (keywords) {
         keywords = keywords.replace(" ", "%20")
       }
       const url = `https://newsdata.io/api/1/news?apikey=pub_191557d28c2be3ed6d194155d9a6af8580164${categories ? `&category=${categories}` : ""}${keywords ? `&q=${keywords}` : ""}`;
 
+      console.log("the url",url);
       const news = await fetch(url, {
         cache: isDynamic ? "no-cache" : "default",
         next: isDynamic ? {revalidate: 0} : {revalidate: 20}
       }
       )
+      console.log("the news is", news);
       const res = await news.json();
       return res
     }
